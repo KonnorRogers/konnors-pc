@@ -11,14 +11,7 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        name: "components",
-        file: "dist/components.umd.js",
-        format: "umd",
-        sourcemap: true,
-        exports: "named",
-      },
-      {
-        file: "dist/components.module.js",
+        dir: "./dist",
         format: "es",
         sourcemap: true,
       }

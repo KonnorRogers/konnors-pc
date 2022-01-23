@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit'
-import { property } from 'lit/decorators/property'
+import type { HTMLTemplateResult, CSSResult } from 'lit'
+import { property } from 'lit/decorators/property.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { normalize } from '../../normalize'
 
@@ -16,7 +17,7 @@ import { normalize } from '../../normalize'
  * @cssproperty [width=clamp(--min-width, --relative-width, --max-width)]
  */
 export class KpcContainer extends LitElement {
-  static get styles () {
+  static get styles (): CSSResult {
     return css`
       ${normalize}
 
@@ -25,6 +26,7 @@ export class KpcContainer extends LitElement {
         --relative-width: 75%;
         --max-width: 1536px;
         --width: clamp(var(--min-width), var(--relative-width), var(--max-width));
+
         display: block;
         margin: 0 auto;
         width: var(--width);
@@ -58,7 +60,7 @@ export class KpcContainer extends LitElement {
 
   @property({ reflect: true, type: String }) size: string = '2x-large'
 
-  render () {
+  render (): HTMLTemplateResult {
     return html`
       <div class=${classMap({
         'app-container': true,
