@@ -1,0 +1,19 @@
+*
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+button {
+  appearance: none;
+  border: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+}

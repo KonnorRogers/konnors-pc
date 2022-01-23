@@ -1,0 +1,81 @@
+/* Lists */
+ul {
+  padding-left: var(--spacing-x-small);
+  line-height: 1.8;
+  list-style: disc inside;
+}
+
+ul ul {
+  list-style: circle inside;
+}
+
+ul ul ul {
+  list-style: square inside;
+}
+
+ul ul ul ul {
+  list-style: disc inside;
+}
+
+ul > li {
+  padding-left: var(--spacing-medium);
+}
+
+/* Headers */
+h1,h2,h3,h4 {
+  font-weight: bold;
+  scroll-margin-top: var(--header-scroll-margin);
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a {
+  border-color: transparent;
+}
+
+h2,h3,h4 {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+h1 {
+  padding: 0.25em var(--spacing-large);
+}
+
+h2 {
+  padding: 0.25em var(--spacing-medium);
+}
+
+h3,h4 {
+  padding: 0.25em var(--spacing-x-small);
+  margin: var(--spacing-xx-small) var(--spacing-small);
+}
+
+h1 {
+  font-size: var(--font-xx-large);
+}
+
+h2 {
+  font-size: var(--font-x-large);
+  margin-top: var(--spacing-xx-large);
+  margin-bottom: var(--spacing-small);
+}
+
+h3 {
+  font-size: var(--font-large);
+  margin-top: var(--spacing-x-large);
+}
+
+h4 {
+  margin-top: var(--spacing-large);
+  font-size: var(--font-large);
+}
+
+p {
+  margin: var(--spacing-small) var(--spacing-large);
+}
+
+p, li {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}

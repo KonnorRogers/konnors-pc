@@ -1,0 +1,68 @@
+/* inline-code blocks & links */
+/* inline code highlights */
+a > code,
+a > * > code,
+a > * > code[class*="language-"],
+a {
+  /* Unable to distinguish identifier, this makes links obvious */
+  text-decoration: none;
+  color: var(--primary-color);
+  border-radius: 0 0 0 0;
+  border-bottom: 1px solid var(--primary-color);
+  display: inline;
+  padding: 0.05em 0;
+  line-height: 1.2;
+}
+
+a > code,
+a > * > code,
+a > * > code[class*="language-"] {
+  border-color: transparent;
+}
+
+
+a:hover > code, a:focus > code,
+a:hover > * > code, a:focus > * > code[class*="language-"],
+a:hover, a:focus {
+  color: var(--secondary-color);
+}
+
+a:focus, a:hover {
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+div[class*="language-"] {
+  margin: var(--spacing-xx-small) 0 var(--spacing-xxx-large) 0 !important;
+}
+
+/* Code block */
+pre {
+  padding: var(--spacing-large);
+  margin: var(--spacing-large) 0;
+  overflow-x: auto;
+}
+
+code > span {
+  line-height: var(--line-height-dense);
+}
+
+.highlight {
+  border-radius: var(--border-radius-large);
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+code.highlight,
+code.highlighter-rouge {
+  display: inline-block;
+  font-size: 0.9em;
+  padding: var(--spacing-xx-small) var(--spacing-x-small);
+  border-radius: var(--border-radius-base);
+  background: var(--code-background);
+  color: var(--code-color);
+  word-break: break-all;
+}
+
+code.highlight {
+  margin: var(--spacing-xx-small) 0;
+}
