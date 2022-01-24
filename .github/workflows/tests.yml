@@ -16,12 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: microsoft/playwright-github-action@v1
-
+      - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
+        with:
+          version: 6.x.x
       - name: use node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'pnpm'
+
       - name: Install
         run: |
           npm ci
