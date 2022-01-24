@@ -28,7 +28,7 @@ jobs:
       - name: Install
         run: |
           pnpm install
-          npm run lint
-          npm run build
-          npm run test
+          pnpm run lint
+          pnpm run build
+          pnpm run test
 
