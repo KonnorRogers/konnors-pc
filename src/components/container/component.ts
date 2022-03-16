@@ -1,6 +1,5 @@
-import { LitElement, html, css } from 'lit'
+import { LitElement, html, css, PropertyDeclarations } from 'lit'
 import type { HTMLTemplateResult, CSSResult } from 'lit'
-import { property } from 'lit/decorators/property.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { normalize } from '../../normalize'
 
@@ -32,44 +31,50 @@ export class KpcContainer extends LitElement {
         width: var(--width);
       }
 
-      app-container--x-small {
+      kpc-container--x-small {
         --max-width: 400px;
       }
 
-      app-container--small {
+      kpc-container--small {
         --max-width: 640px;
       }
 
-      app-container--medium {
+      kpc-container--medium {
         --max-width: 768px;
       }
 
-      app-container--large {
+      kpc-container--large {
         --max-width: 1024px;
       }
 
-      app-container--x-large {
+      kpc-container--x-large {
         --max-width: 1280px;
       }
 
-      app-container--2x-large {
+      kpc-container--2x-large {
         --max-width: 1536px;
       }
     `
   }
 
-  @property({ reflect: true, type: String }) size: string = '2x-large'
+  size = 'xx-large'
+
+  static get properties (): PropertyDeclarations {
+    return {
+      size: { reflect: true, type: String }
+    }
+  }
 
   render (): HTMLTemplateResult {
     return html`
       <div class=${classMap({
-        'app-container': true,
-        'app-container--x-small': this.size === 'x-small',
-        'app-container--small': this.size === 'small',
-        'app-container--medium': this.size === 'medium',
-        'app-container--large': this.size === 'large',
-        'app-container--x-large': this.size === 'x-large',
-        'app-container--2x-large': this.size === '2x-large'
+        'kpc-container': true,
+        'kpc-container--x-small': this.size === 'x-small',
+        'kpc-container--small': this.size === 'small',
+        'kpc-container--medium': this.size === 'medium',
+        'kpc-container--large': this.size === 'large',
+        'kpc-container--x-large': this.size === 'x-large',
+        'kpc-container--xx-large': this.size === 'xx-large'
       })} part="base">
         <slot></slot>
       </div>

@@ -1,7 +1,9 @@
 import { KpcContainer } from './component'
-window.customElements.define('kpc-container', KpcContainer)
 
-export { KpcContainer }
+const name = 'kpc-container'
+window.customElements.define(name, KpcContainer)
+
+export { name, KpcContainer as class }
 
 declare global {
   interface HTMLElementTagNameMap {
