@@ -39,12 +39,19 @@ export class KpcFormGroup extends LitElement {
     `
   }
 
-  size = 'medium'
+  size = "medium"
 
   static get properties () {
     return {
       size: { reflect: true, type: String }
     }
+  }
+
+  update(changedProperties: Map<string, unknown>) {
+    if (changedProperties.has("size")) {
+      if (!this.size) this.size = "medium"
+    }
+    super.update(changedProperties);
   }
 
   render () {
