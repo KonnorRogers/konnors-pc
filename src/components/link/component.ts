@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { styles } from './styles'
 import { property } from 'lit/decorators/property.js'
+import { variantClassMap } from 'src/variantMap'
 
 export type LinkVariants = 'default' | 'success' | 'neutral' | 'warning' | 'danger'
 
@@ -33,16 +34,12 @@ export class KpcLink extends LitElement {
     return this.external ? `${this.rel} nofollow noopener noreferrer` : this.rel
   }
 
-  get classes (): VariantMap<"link", LinkVariants> {
-    return variantMap("link", this.variant, KpcLink.variants)
-  }
-
   render (): TemplateResult {
     return html`
       <a
         part="base"
         href="${this.href}"
-        class="${classMap(this.classes)}"
+        class="${variantClassMap("link", this.variant, KpcLink.variants)}"
         rel=${ifDefined(this.externalRel)}
         target=${ifDefined(this.target)}>
         <slot></slot>
@@ -50,15 +47,3 @@ export class KpcLink extends LitElement {
     `
   }
 }
-
-export type VariantMap<Base extends string, Variant extends string> = Record<`${Base}--${Variant}` | `${Base}`, boolean>
-
-function variantMap
-  <Obj extends VariantMap<Base, Variant>, Base extends string, Variant extends string>
-  (base: Base, variant: string, array: Array<Variant>): Obj
-{
-  return array.reduce<Obj>((obj: Obj, str: Variant) => {
-    return { ...obj, [`${base}--${str}`]: variant === str }
-  }, {} as Obj)
-}
-
