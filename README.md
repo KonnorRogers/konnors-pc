@@ -1,18 +1,15 @@
-# Purpose
+## Purpose
 
-Reusable components for me
+A set of reusable components for me
 
-## Dependencies
+## Installation
 
-Make sure you have https://open-props.style/ installed.
-
-## Local Development
-
-Then, in your new repo do the following:
-
-```bash
-npm install
-npm run start
+```console
+npm install konnors-pc
 ```
 
-Navigate to `localhost:8000`
+Then in your javascript file:
+
+```js
+import "konnors-pc"
+```
