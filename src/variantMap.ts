@@ -6,7 +6,7 @@ export type VariantMap<Base extends string, Variant extends string> = Record<`${
 function variantMap<Obj extends VariantMap<Base, Variant>, Base extends string, Variant extends string> (base: Base, variant: string, array: Array<Variant>): Obj {
   return array.reduce<Obj>((obj: Obj, str: Variant) => {
     return { ...obj, [`${base}--${str}`]: variant === str }
-  }, {} as Obj)
+  }, { [base]: true } as Obj)
 }
 
 export function variantClassMap<Obj extends VariantMap<Base, Variant> & DirectiveClass, Base extends string, Variant extends string> (base: Base, variant: string, array: Array<Variant>): DirectiveResult<Obj> {

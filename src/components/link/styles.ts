@@ -15,7 +15,6 @@ export const styles = css`
     display: inline-block;
     border-width: var(--sl-input-border-width);
     font-family: var(--sl-input-font-family);
-    font-weight: var(--sl-font-weight-semibold);
     user-select: none;
     text-decoration: none;
     cursor: inherit;
@@ -25,8 +24,7 @@ export const styles = css`
     --border-width: 2px;
 
     border-bottom: var(--border-width) solid transparent;
-    padding-bottom: var(--border-width);
-    margin-bottom: calc(var(--border-width) * -1);
+    padding-bottom: calc(var(--border-width) / 2);
   }
 
   /* Primary */

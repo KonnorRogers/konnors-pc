@@ -1,6 +1,5 @@
 import { LitElement, html, CSSResult, TemplateResult } from 'lit'
 import { ifDefined } from 'lit/directives/if-defined.js'
-import { classMap } from 'lit/directives/class-map.js'
 import { styles } from './styles'
 import { property } from 'lit/decorators/property.js'
 import { variantClassMap } from 'src/variantMap'
