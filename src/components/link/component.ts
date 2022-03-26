@@ -3,6 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js'
 import { styles } from './styles'
 import { property } from 'lit/decorators/property.js'
 import { variantClassMap } from 'src/variantMap'
+import { Void } from 'src/types'
 
 export type LinkVariants = 'default' | 'success' | 'neutral' | 'warning' | 'danger'
 
@@ -14,10 +15,18 @@ export type LinkVariants = 'default' | 'success' | 'neutral' | 'warning' | 'dang
  * @csspart base - Link that wraps everything
  */
 export class KpcLink extends LitElement {
-  @property({ reflect: true, type: String }) href?: string
-  @property({ reflect: true, type: String }) rel: string = ''
-  @property({ reflect: true, type: String }) target?: string
+  // Custom
   @property({ reflect: true, type: String }) variant: LinkVariants = 'default'
+
+  // Built ins.
+  @property({ reflect: true, type: String }) href?: string
+  @property({ reflect: true, type: String }) rel?: string
+  @property({ reflect: true, type: String }) target?: string
+  @property({ reflect: true, type: String }) type?: string
+  @property({ reflect: true, type: String }) hreflang?: string
+  @property({ reflect: true, type: String }) ping?: string
+  @property({ reflect: true, type: String }) referrerpolicy?: string
+  @property({ reflect: true, type: String }) download?: string
 
   @property({ type: Boolean }) external: boolean = false
 
@@ -29,8 +38,8 @@ export class KpcLink extends LitElement {
     return styles
   }
 
-  get externalRel (): string {
-    return this.external ? `${this.rel} nofollow noopener noreferrer` : this.rel
+  get externalRel (): string | Void {
+    return this.external ? `${this.rel || ""} nofollow noopener noreferrer` : this.rel
   }
 
   render (): TemplateResult {
@@ -40,7 +49,13 @@ export class KpcLink extends LitElement {
         href="${this.href}"
         class="${variantClassMap("link", this.variant, KpcLink.variants)}"
         rel=${ifDefined(this.externalRel)}
-        target=${ifDefined(this.target)}>
+        target=${ifDefined(this.target)}
+        type=${ifDefined(this.type)}
+        hreflang=${ifDefined(this.hreflang)}
+        ping=${ifDefined(this.ping)}
+        referrerpolicy=${ifDefined(this.referrerpolicy)}
+        download=${ifDefined(this.download)}
+      >
         <slot></slot>
       </a>
     `

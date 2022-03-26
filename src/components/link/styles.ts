@@ -25,6 +25,7 @@ export const styles = css`
 
     border-bottom: var(--border-width) solid transparent;
     padding-bottom: calc(var(--border-width) / 2);
+    line-height: 1.2;
   }
 
   /* Primary */
