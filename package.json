@@ -1,6 +1,6 @@
 {
   "name": "konnors-pc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "source": "src/index.ts",
   "files": [
     "dist"
