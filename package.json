@@ -25,7 +25,7 @@
     "build": "npm run clean && rollup -c",
     "build:watch": "npm run clean && rollup -wc",
     "changelog": "standard-changelog",
-    "deploy": "standard-version",
+    "deploy": "npm run build && standard-version",
     "deploy:beta": "npm run deploy --prerelease beta",
     "deploy:patch": "npm run deploy --release-as patch",
     "deploy:minor": "npm run deploy --release-as minor",
