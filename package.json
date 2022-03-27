@@ -8,7 +8,8 @@
   "main": "./dist/kpc.unbundled.js",
   "module": "./dist/kpc.unbundled.js",
   "exports": {
-    ".": "./dist/kpc.unbundled.js"
+    ".": "./dist/kpc.unbundled.js",
+    "./bundled": "./dist/kpc.bundled.js"
   },
   "type": "module",
   "license": "MIT",
