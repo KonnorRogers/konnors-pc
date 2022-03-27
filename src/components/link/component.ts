@@ -39,7 +39,7 @@ export class KpcLink extends LitElement {
   }
 
   get externalRel (): string | Void {
-    return this.external ? `${this.rel || ""} nofollow noopener noreferrer` : this.rel
+    return this.external ? `${this.rel ?? ''} nofollow noopener noreferrer` : this.rel
   }
 
   render (): TemplateResult {
@@ -47,7 +47,7 @@ export class KpcLink extends LitElement {
       <a
         part="base"
         href="${this.href}"
-        class="${variantClassMap("link", this.variant, KpcLink.variants)}"
+        class="${variantClassMap('link', this.variant, KpcLink.variants)}"
         rel=${ifDefined(this.externalRel)}
         target=${ifDefined(this.target)}
         type=${ifDefined(this.type)}

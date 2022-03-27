@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit'
+import { LitElement, html, css, CSSResult, PropertyDeclarations, TemplateResult } from 'lit'
 import { classMap } from 'lit/directives/class-map.js'
 import { normalize } from '../../normalize.js'
 
@@ -10,7 +10,7 @@ import { normalize } from '../../normalize.js'
  * @csspart base - Default slot wrapper
  */
 export class KpcFormGroup extends LitElement {
-  static get styles () {
+  static get styles (): CSSResult {
     return css`
       ${normalize}
 
@@ -39,22 +39,22 @@ export class KpcFormGroup extends LitElement {
     `
   }
 
-  size = "medium"
+  size = 'medium'
 
-  static get properties () {
+  static get properties (): PropertyDeclarations {
     return {
       size: { reflect: true, type: String }
     }
   }
 
-  update(changedProperties: Map<string, unknown>) {
-    if (changedProperties.has("size")) {
-      if (!this.size) this.size = "medium"
+  update (changedProperties: Map<string, unknown>): void {
+    if (changedProperties.has('size')) {
+      if (this.size == null || this.size.trim() === '') this.size = 'medium'
     }
-    super.update(changedProperties);
+    super.update(changedProperties)
   }
 
-  render () {
+  render (): TemplateResult {
     return html`
       <div class=${classMap({
         'form-group': true,
