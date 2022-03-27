@@ -3,7 +3,7 @@ import type { DirectiveClass, DirectiveResult } from 'lit/directive.js'
 
 export type VariantMap = Record<string, boolean>
 
-function variantMap<Base extends string, Variant extends string> (base: Base, variant: Variant, array: Array<Variant>): VariantMap {
+function variantMap<Base extends string, Variant extends string> (base: Base, variant: Variant, array: Variant[]): VariantMap {
   const obj: VariantMap = { [base]: true }
 
   return array.reduce<VariantMap>((obj: VariantMap, str: Variant) => {
